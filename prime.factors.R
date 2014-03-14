@@ -1,4 +1,4 @@
-prime.factors <- function(n, sieve=c(2)) {
+prime.factors <- function(n, sieve=NULL) {
   
   # Returns a list containing two vectors:
   # list$primes : prime divisors of n
@@ -6,7 +6,7 @@ prime.factors <- function(n, sieve=c(2)) {
   #
   # May receive an already calculated sieve as input
   
-  if ( identical(sieve, 2) ) {
+  if ( is.null(sieve) ) {
     source("sieve.R")
     sieve <- sieve(n)
   }
