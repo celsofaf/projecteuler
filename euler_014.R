@@ -21,5 +21,5 @@ euler_014 <- function() {
   counts <- mcmapply(collatz.count, start)
   max.count <- max(counts)
   collatz <- -1 + 2 * which(counts == max.count)
-  print(collatz)
+  return(collatz)
 }
