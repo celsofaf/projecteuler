@@ -28,7 +28,7 @@ prime.factors <- function(n, sieve=NULL) {
   if ( length(pow) == 0 ) return(list(primes = n, exp = 1))  # is a prime number
   if ( n != prod(pow) ) {
     n <- n / prod(pow)   # now, n is prime
-    list$primes <- c(list$primes, p)
+    list$primes <- c(list$primes, n)
     list$exp <- c(list$exp, 1)
   }
   return(list)
