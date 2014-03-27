@@ -1,13 +1,13 @@
 euler_021_2 <- function() {
-  # a clever method
+  # a (possibly more) clever method
   
-  max_n <- 10000
+  MAX_N <- 10000
   source("sieve.R")
   source("prime.factors.R")
-  thesieve <- sieve(max_n)
+  thesieve <- sieve(floor(sqrt(max_n)))
   
   sum.divisors <- function(n) {  # based on the sigma function of number theory
-    if ( n <= 1 ) return(1)
+    if ( n <= 1 || n %in% thesieve ) return(1)
     p <- prime.factors(n, thesieve)
     sigma <- 1
     for ( i in 1:length(p$primes) ) {
@@ -20,9 +20,9 @@ euler_021_2 <- function() {
   }
   
   sum <- 0
-  for ( i in 1:max_n ) {
+  for ( i in 1:MAX_N ) {
     di <- sum.divisors(i)
-    if ( di > 1 && di <= max_n && sum.divisors(di) == i && di > i)
+    if ( di > 1 && di <= MAX_N && sum.divisors(di) == i && di > i)
       sum <- sum + i + di
   }
   return(sum)
