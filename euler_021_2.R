@@ -20,10 +20,10 @@ euler_021_2 <- function() {
   }
   
   sum <- 0
-  for ( i in 1:MAX_N ) {
-    di <- sum.divisors(i)
-    if ( di > 1 && di <= MAX_N && sum.divisors(di) == i && di > i)
-      sum <- sum + i + di
-  }
+  sum.div <- sapply(1:MAX_N, sum.divisors)
+  for ( i in 1:MAX_N )
+    if ( sum.div[i] > 1 && sum.div[i] <= MAX_N && sum.div[i] > i )
+      if ( sum.div[sum.div[i]] == i )
+        sum <- sum + i + sum.div[i]
   return(sum)
 }
