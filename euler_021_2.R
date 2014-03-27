@@ -4,7 +4,7 @@ euler_021_2 <- function() {
   MAX_N <- 10000
   source("sieve.R")
   source("prime.factors.R")
-  thesieve <- sieve(floor(sqrt(max_n)))
+  thesieve <- sieve(floor(sqrt(MAX_N)))
   
   sum.divisors <- function(n) {  # based on the sigma function of number theory
     if ( n <= 1 || n %in% thesieve ) return(1)
